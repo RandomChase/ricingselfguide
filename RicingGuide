@@ -1,32 +1,58 @@
-Okay, since I want to learn how to "Rice" a Linux. I made this guide for myself on how to "Rice" my linux installation. 
+Okay, since I want to learn how to "Rice" a Linux. I made this guide for myself 
+on how to "Rice" my linux installation. 
 
-For this guide, we will use the base install terminal emulator and bash. Since I am on Mint with Xfce as my DE,  the base terminal is xfec4-terminal and the Bash shell. There are alternative terminal emulators and shells, but I will go with the base for this guide for the sake of simplicity. And I am assuming the readers of this guide are as well, and on popular OOTB Distros like Mint, Manjaro, Ubuntu, and what have you and on different DE spins that comes with their own terminal emulators(KDE being Konsole, Gnome being Gnome-terminal and etc) and bash shell as default.
+For this guide, we will use the base install terminal emulator and bash. Since I
+am on Mint with Xfce as my DE,  the base terminal is xfec4-terminal and the 
+Bash shell. There are alternative terminal emulators and shells, but I will go 
+with the base for this guide for the sake of simplicity. And I am assuming the 
+readers of this guide are as well, and on popular OOTB Distros like Mint, 
+Manjaro, Ubuntu, and what have you and on different DE spins that comes with 
+their own terminal emulators(KDE being Konsole, Gnome being Gnome-terminal and 
+etc) and bash shell as default.
 
-Although this is guide is for new Ricers, I am assuming you have basic knowledge on shell commands and how to use the terminal and how to install binaries with the package manager(apt, dnf, pacman and etc) that comes with your distro. That's the bare minimum prerequisite.
+Although this is guide is for new Ricers, I am assuming you have basic knowledge
+on shell commands and how to use the terminal and how to install binaries with 
+the package manager(apt, dnf, pacman and etc) that comes with your distro. 
+That's the bare minimum prerequisite.
 
 There are some several installations before we begin.
 
-First come are the window managers. My preference is awesome and openbox for starters, we will begin with them. 
+First come are the window managers. My preference is awesome and openbox for 
+starters, we will begin with them. 
 
-As to why I picked them, OpenBox is very mature and documented Tiling Window Manager while Awesome is a Dynamic Window Manager with a beginner friendly setup. As to why I didn't pick i3 and bspwm, they require more configurations, and for those who likes gaps, you have to get another i3, called i3-gaps which are not commonly available in package managers.
+As to why I picked them, OpenBox is very mature and documented Tiling Window 
+Manager while Awesome is a Dynamic Window Manager with a beginner friendly 
+setup. As to why I didn't pick i3 and bspwm, they require more configurations, 
+and for those who likes gaps, you have to get another i3, called i3-gaps which 
+are not commonly available in package managers.
 
-We will begin with openbox - assuming we have the gtk2.0+ dependancies installed in our system, if not, our package manager will do it for ourselves.
+We will begin with openbox - assuming we have the gtk2.0+ dependancies installed
+in our system, if not, our package manager will do it for ourselves.
 
 
 So we need to install four programs
-    > openbox -OpenBox is your window manager.
-    > obconf  -Obconf will configure openbox's visuals
-    > menumaker -Menumaker will configure your context menu i.e the right click menu*
+    >   openbox -OpenBox is your window manager.
+    >   obconf  -Obconf will configure openbox's visuals
+    >   menumaker -Menumaker will configure your context menu i.e the right 
+        click menu*
         *You can download this here: https://sourceforge.net/projects/menumaker/
 
 After you got the above, install these: 
-    > rofi  -Rofi is an application launcher, basically type in the program you want to launch it; there are several alternatives, but this one is better for beginners.
-    > lxappearance -This will help select the gtk theme borders of your graphical programs. There is oomox, but this one is far easier.
-    > compton/picom - This is a compositor able to be used on windowmanagers rather than DE's like compiz, it will give your more graphical effects like dropshadow and transperancy
-    > nitrogen - This is a wallpaper selector, there is Feh as an alternative, but requires more scripting
+    >   rofi  -Rofi is an application launcher, basically type in the program 
+        you to launch it; there are several alternatives, but this one is better 
+        for beginners.
+    >   lxappearance -This will help select the gtk theme borders of your 
+        graphical programs. There is oomox, but this one is far easier.
+    >   compton/picom - This is a compositor able to be used on windowmanagers 
+        rather than DE's like compiz, it will give your more graphical effects 
+        like dropshadow and transperancy
+    >   nitrogen - This is a wallpaper selector, there is Feh as an alternative, 
+        but requires more scripting
     
 
-Obviously, no Rice is complete without a cli software, a filemanager, like a music player, a panel/status bar, a notification popup.
+Obviously, no Rice is complete without a cli software: a filemanager, a music 
+player, a panel/status bar, a notification popup. And other oddities, like
+automatic color theme selector for the terminal.
 
 We will get into them more later. But first let's do the base installations. 
 
