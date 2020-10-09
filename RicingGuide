@@ -1,6 +1,6 @@
+Okay, since I want to learn how to "Rice" a Linux. I have to download some packages for me to rice.
 
-
-Okay, since I want to learn how to "Rice" a linux. I have to download some packages for me to rice.
+For this guide, we will use the base install terminal emulator and bash. Since I am on Mint Face, my terminal is xfec4-terminal and the regular bash. There are alternative terminal emulators and shell clis, but I will go with the base for this guide for the sake of simplicity. 
 
 There are some several installations before we begin.
 
@@ -10,21 +10,18 @@ We will begin with openbox - assuming we have the gtk2.0+ dependancies installed
 
 
 So we need to install four programs
-    > openbox 
-    > obconf
-The above two should come with whatever distro's package manager, most of the time. 
-    > menumaker
-    You can download this here: https://sourceforge.net/projects/menumaker/
+    > openbox -OpenBox is your window manager.
+    > obconf  -Obconf will configure openbox's visuals
+    > menumaker -Menumaker will configure your context menu i.e the right click menu*
+        *You can download this here: https://sourceforge.net/projects/menumaker/
 
-So, what is the purpose of the three downloaded software so far?
-    -- OpenBox is your window manager.
-    -- Obconf will configure openbox's visuals
-    -- Menumaker will configure your context menu
+After you got the above, install these: 
+    > rofi  -Rofi is an application launcher, basically type in the program you want to launch it; there are several alternatives, but this one is better for beginners.
+    > lxappearance -This will help select the gtk theme borders of your graphical programs. There is oomox, but this one is far easier.
+    > compton/picom - This is a compositor able to be used on windowmanagers rather than DE's like compiz, it will give your more graphical effects like dropshadow and transperancy
+    > nitrogen - This is a wallpaper selector, there is Feh as an alternative, but requires more scripting
+    
 
+Obviously, no Rice is complete without added things, like
 
-After you got these, install these: 
-    > rofi
-    > lxappearance
-    > compton/picom
-    >
 
