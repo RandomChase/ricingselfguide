@@ -1,0 +1,30 @@
+
+
+Okay, since I want to learn how to "Rice" a linux. I have to download some packages for me to rice.
+
+There are some several installations before we begin.
+
+First come are the window managers. My preference is awesome and openbox for starters, we will begin with them. 
+
+We will begin with openbox - assuming we have the gtk2.0+ dependancies installed in our system, if not, our package manager will do it for ourselves.
+
+
+So we need to install four programs
+    > openbox 
+    > obconf
+The above two should come with whatever distro's package manager, most of the time. 
+    > menumaker
+    You can download this here: https://sourceforge.net/projects/menumaker/
+
+So, what is the purpose of the three downloaded software so far?
+    -- OpenBox is your window manager.
+    -- Obconf will configure openbox's visuals
+    -- Menumaker will configure your context menu
+
+
+After you got these, install these: 
+    > rofi
+    > lxappearance
+    > compton/picom
+    >
+
