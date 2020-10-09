@@ -61,7 +61,39 @@ While installing - it will suggest several packages, depending on your package
 manager. Mine automatically installed obconf along with openbox.
 
 Now, that it is install. It's a good idea to logout and login a new session
-with openbox. 
+with openbox.
+
+Now, that you are in openbox, you will see a blank screen with just the mouse.
+Wait a minute, if you right click you will get a context menu or pipe menu
+as openbox calls it. By default it should have a decent pipe menu if you 
+installed it through a package rather than from source, but we are going to make
+it look better.
+
+Now, let's add menumaker. If you download, untar it with the 'tar -txvf' command
+and run './configure && make && make install' in the folder as sudo, and it will
+install so aslong as you have python2 or python3 in your system.
+
+After it has installed run this command. 
+
+'mmaker -t xterm -f OpenBox3'
+
+Remember, if you are using something else, like Fluxbox or IceWM for example,
+you can always reference the wiki.archlinux.org for those particular WMs. 
+
+Infact, I use them a lot for my other things.
+
+Once done. Reset your Openbox, now right click and you will see a nicer menu.
+If you will notice some settings from let's say, Cinnamon or KDE won't carry 
+over, like the icon theme if you open your file manager and what have you.
+
+Now install rofi. 
+
+
+
+
+
+
+ 
 
 
 
