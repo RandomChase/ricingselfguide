@@ -12,7 +12,8 @@ etc) and bash shell as default shell.
 
 Although this is guide is for new Ricers, I am assuming you have basic knowledge
 on shell commands and how to use the terminal and how to install binaries with 
-the package manager(apt, dnf, pacman and etc) that comes with your distro. 
+the package manager(apt, dnf, pacman and etc) and downloading source online
+as in with git, wget and curl that comes with your distro. 
 That's the bare minimum prerequisite.
 
 There are some several installations before we begin ricing.
@@ -44,8 +45,8 @@ After you got the above, install these:
         for beginners.
     >   lxappearance -This will help select the gtk theme borders of your 
         graphical programs. There is oomox, but this one is far easier.
-        There is also 'laxappearance-obconf', the latter is just particular
-        to openbox and you need both for it.
+        There is also 'lxappearance-obconf', the latter is just particular
+        to openbox and you it if you want lxappearance to have full control.
     >   compton/picom - This is a compositor able to be used on window managers 
         rather than DE's like compiz, it will give your more graphical effects 
         like dropshadow and transperancy
@@ -66,25 +67,29 @@ Now, that it is install. It's a good idea to logout and login a new session
 with openbox.
 
 Now, that you are in openbox, you will see a blank screen with just the mouse.
-Wait a minute, if you right click you will get a context menu or pipe menu
-as openbox calls it. By default it should have a decent pipe menu if you 
-installed it through a package rather than from source, but we are going to make
-it look better.
+Wait a minute, if you right click you will get a context menu. 
+By default it should have a decent menu if you installed it through a package 
+rather than from source, but we are going to make it look better.
 
 First, if we head to ~/.config/openbox and you find only one or two files, you 
 have to create a couple of more. Or copy them from /etc/xdg/openbox to that 
 home folder if you want something tailored to yourself if you are sharing
-the pc, otherwise, those configs in the xdg are global.
+the pc, otherwise, those configs in the xdg are global. There should be 4 files:
+autostart.sh, environment.sh, menu.xml and rc.xml
 
 If you open autostart, you might see gnome, kde or xfce daemons.
-These will make those themes work on openbox.
+These will make those themes work with openbox.
+
+Menu.xml will have your right click menu.You can edit this manually if you want 
+so or let  menumaker generates one. You can still edit the generated one too.
 
 
 Now, let's add menumaker. If you download, untar it with the 'tar -txvf' command
 and run './configure && make && make install' in the folder as sudo, and it will
 install so aslong as you have python2 or python3 in your system.
 
-After it has installed run this command. 
+After it has installed run this command. (Tip: you can use mmaker without 
+installing it too).
 
 'mmaker -t xterm -f OpenBox3'
 
@@ -96,7 +101,8 @@ think it is a very good resource.
 
 Once done. Reset your Openbox, now right click and you will see a nicer menu.
 You can also go ahead and delete the menumaker folder and archive, if you want
-so.
+so. Remember though, if you install a new program and you want it to appear.
+You have to reapply a
 
 You will notice some settings from let's say, Cinnamon or KDE won't carry 
 over, like the icon theme if you open your file manager and what have you.
@@ -109,6 +115,36 @@ and what appears on the borders like if you want a close button or a rollup
 button instead(reason why it is called stacking window manager, you can create
 a bunch of application on top of each other). Change the fonts here to a more 
 aesthetic one(more that later) and various other settings you can play with.
+Remember rc.xml? This is where it is stored.
+
+If you installed lxappearance, you can use those sweet gtk and icon themes
+that comes on the base install of your distro. However, even after using
+clicking on them, it seems to only update after exiting to a logout screen
+and coming in for me. 
+
+Now let's add some keybindings. Preferrably people use the Windows key as the
+Superkey, and that's what I am going to use as well. So let's launch up our
+text editor and rc.xml. (Tip: if you don't want to do it manually, you can 
+install 'obkey').
+
+Head to the section '<!-- Keybindings for running applications -->' section
+
+Just a reminder that 'C' stands for Control, 'S' for shift, 'A' for alt and 'W' 
+for Windows key i.e the default Superkey.
+
+Let's do one for rofi.
+
+<keybind key="W-p">
+    <action name="Execute">
+        <command>rofi -show run</command>
+    </action>
+</keybind>
+
+Restart OB and it will be enabled. You can do this for several otherbindings
+Like W-w for a web browser W-backspace for a terminal. 
+
+
+    
 
 
 
