@@ -50,8 +50,9 @@ After you got the above, install these:
     >   compton/picom - This is a compositor able to be used on window managers 
         rather than DE's like compiz, it will give your more graphical effects 
         like dropshadow and transperancy
-    >   nitrogen - This is a wallpaper selector, there is Feh as an alternative, 
-        but requires more scripting
+    >   feh - is a wallpaper selector. Also an image viewer, but it is
+        it works well with openbox and other wms. However, it needs some
+        scripting to make it up and running. 
     
 
 Obviously, no Rice is complete without a cli software: a filemanager, a music 
@@ -102,7 +103,14 @@ think it is a very good resource.
 Once done. Reset your Openbox, now right click and you will see a nicer menu.
 You can also go ahead and delete the menumaker folder and archive, if you want
 so. Remember though, if you install a new program and you want it to appear.
-You have to reapply a
+You have to reapply menumaker and restart.
+
+In my installation, restart doesn't exists in the menu and had to add it
+manually. Open menu.xml, find 'reconfigure', and underneath it add this.
+
+<item label="Restart OpenBox"> <action name="Execute">
+                <execute>openbox --restart</execute>
+            </action> </item>
 
 You will notice some settings from let's say, Cinnamon or KDE won't carry 
 over, like the icon theme if you open your file manager and what have you.
@@ -125,7 +133,7 @@ and coming in for me.
 Now let's add some keybindings. Preferrably people use the Windows key as the
 Superkey, and that's what I am going to use as well. So let's launch up our
 text editor and rc.xml. (Tip: if you don't want to do it manually, you can 
-install 'obkey').
+install 'obkey' from source).
 
 Head to the section '<!-- Keybindings for running applications -->' section
 
@@ -136,12 +144,68 @@ Let's do one for rofi.
 
 <keybind key="W-p">
     <action name="Execute">
-        <command>rofi -show run</command>
+        <command>rofi -show run</command>asd
     </action>
 </keybind>
 
+If you want to change rofi's theme, you have to search for it within rofi's 
+app launcher.
+
 Restart OB and it will be enabled. You can do this for several otherbindings
-Like W-w for a web browser W-backspace for a terminal. 
+Like 'W-w' for a web browser and etc.
+
+Now time for wallpapers, I suggest you git clone from this repository: 
+https://gitlab.com/dwt1/wallpapers.git - this is Distrotube's personal wallpaper
+collection and they are really neat. I cloned it in my Pictures folder
+for ease of access. It has a lot of natural landscapes and less abstract images,
+so it is a matter of preferences, but we want you to get up and running so get
+those.
+
+If you have feh installed. It's high time to add it in our OpenBox autostart.
+Launch your favorit editor and put this there
+
+'feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* &'
+
+Well, feh will make the background a fill(there other options like bg-max,
+bg-center, bg-scale and etc, so pick your favorite from its man page, I prefer 
+fill as it zooms in to fill the screen).
+
+The '--no-fehbg' will tell feh not to add a .fehbg script for execution.
+This script is only good for one background, but if you want multiple rounds
+of backgrounds, add this command. The '--randomize' will pick a random picture
+in the folder you selected.
+
+Alrighty. I am a guy who likes his wallpapers to change from time to time.
+So let's use a utility called cron, with editing the crontabs.
+
+If you have a bin in your home folder or ~/.local/bin create, we will create
+a bash script that will automatically reinitialize feh. Name it whatever you
+want, I called it fehchanger.
+
+Create a new file and add this:
+
+#!/usr/bin/env bash
+feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*
+
+Then run this in terminal 'chmod +x fehchanger', then test it with ./fehchanger
+to see it works, and voila. It did.
+
+Now we want it to repeat periodically and not just stand there at one time.
+Your linux or unix-like distro should have cron utility installed by default 
+and it is running in the background.
+
+So let's check what is running: crontab -l
+Hmm... got nothing. So let's fill it using crontab -e. 
+It might ask you want to use as text editor, I usually go with nano.
+If it didn't try using: 'EDITOR=nano crontab -e'
+
+
+
+
+
+
+
+
 
 
     
