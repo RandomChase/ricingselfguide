@@ -188,16 +188,37 @@ Create a new file and add this:
 feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*
 
 Then run this in terminal 'chmod +x fehchanger', then test it with ./fehchanger
-to see it works, and voila. It did.
+to see it works, and voila. It did. 
 
 Now we want it to repeat periodically and not just stand there at one time.
 Your linux or unix-like distro should have cron utility installed by default 
-and it is running in the background.
+and it is running in the background, if you want to use it check some online 
+guides. For some reason, it didn't work for me.
 
-So let's check what is running: crontab -l
-Hmm... got nothing. So let's fill it using crontab -e. 
-It might ask you want to use as text editor, I usually go with nano.
-If it didn't try using: 'EDITOR=nano crontab -e'
+However, I wrote this script and it worked just fine. So I edited by previous
+fehchanger to this:
+'
+#!/usr/bin/env bash
+{
+while true;do
+  feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* 
+  sleep 3m
+done
+} &
+'
+Obviously, you can change the value of sleep to seconds to minutes and even
+hours, and that is up to you.
+
+Now let's go back to our OpenBox autostart file and edit out this line
+'feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* &'
+
+with our script:
+'/home/$USER/.local/bin/fehchanger &' 
+
+Reboot, and it will work just wonderfully. What I like about feh, is that is 
+really minimal and small. If any case you guys want to install a minimal distro
+on an older computer, you know what software to run on them.
+
 
 
 

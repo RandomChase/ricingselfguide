@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+{
+while true;do
+  feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* 
+  sleep 3m
+done
+} &
+
+
