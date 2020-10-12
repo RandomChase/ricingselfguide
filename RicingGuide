@@ -224,18 +224,66 @@ resource it is taking, it is almost none.
 Now that we have sweet wallpapers, let's get some cute effects on our desktop.
 Next let's get compton next.
 
+There is a good chance that your package manager will have compton if not picom.
+Picom is another fork of a compton fork. While compton is the stable release of
+other forks(the wonders of open-source projects). 
 
+Compton by default will search in certain locations, one of them being
+~/.config folder. So create an empty .compton.conf file so that we can add
+in some valuable things.
 
-$$
+I for one like, blur effects and transperent terminals i.e translucent effect. 
+So for that, I am going to use it. Of course, if you want to add drop shadow
+that's another thing. 
 
+If we download compton.sample.con from its main repo at 
+https://github.com/chjj/compton.git  we will have a base. Save it on our file
+and just launch 'compton' in terminal and WOAH! Everything is transparent!
 
+Obviously there are options I want to change, maybe you don't want them to have
+the same thing. So play around with the option in the conf file.
 
+From several sources, they usually say change the renderer to "glx" rather than
+"xrender", especially if you have graphics card capable of handling it. 
 
+There is also a delay(from fadein and fadeout) which I don't like. I like 
+my pc snappy and not like it is Windows Vista.
 
+If you didn't notice your terminal not becoming clear, that means you have to 
+go to its own config. It won't work without compton, but onceyou launch compton 
+it will work.
 
-    
+You have to also make some exclusion for some software you don't want. 
+Like firefox or chrome or what have you.
 
+Also once you are done doing the settings. Let's go back to our autostart
+and just add compton like this  
 
+'compton &'
+
+As you launch openbox, every settings will come back up. Of course, if you don't
+have a .config file, you can use the commandline arguments and launch it up
+like with them like how we did with feh originally.
+
+However in a strange twist of fate I decided to install picom
+from source from its github https://github.com/yshui/picom, just in case
+you want to build it too, remember it has quite a bunch of dependancies
+that needs to be installed(with exception of libpcre in my build). 
+
+The only reason is that it has a sweeter blurring algorithm known as 
+"dual_kawase", most of the options available in compton are available in 
+picom, however if you run picom from terminal its going to warn you on 
+deprecated options. 
+
+Also I didn't install the asciidoc because its dependancy is a wooping 800mb.
+So I just copied the man file as a text in my home folder.
+
+Alright. Now that we are done with compositing. Time to add some dandy bars.
+For the sake of this guide, I won't be using docks, just bars.
+
+There three popular bar choices for us to pick: tint2, polybar and lemonbar.
+There is also Xmobar, but I don't like things that are not independant, and
+xmobar supposed to accompany 
 
 
 
