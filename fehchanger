@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 {
 while true;do
-  feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* 
-  sleep 3m
+    location=$(find "/home/$USER/Pictures/Wallpapers" -type f -print0 | shuf -z -n 1)
+    wal -q -n -i "$location"
+    feh --bg-fill --no-fehbg "$(< "${HOME}/.cache/wal/wal")" 
+  sleep 4m
 done
 } &
 
