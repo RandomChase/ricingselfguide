@@ -10,6 +10,10 @@ Manjaro, Ubuntu, and what have you and on different DE spins that comes with
 their own terminal emulators(KDE being Konsole, Gnome being Gnome-terminal and 
 etc) and bash shell as default shell.
 
+If you are on a debian based repo try to add this repository. This will help
+you install a bunch of software from a package, rather than from source.
+https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer
+
 Although this guide is for new Ricers, I am assuming you have basic knowledge
 on shell commands and how to use the terminal and how to install binaries with 
 the package manager(apt, dnf, pacman and etc) and downloading source online with 
@@ -303,26 +307,85 @@ I will change this is to my fehchanger script:
 
 
 '''
-    -feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*    
-    +location=$(find "/home/$USER/Pictures/Wallpapers" -type f -print0 | shuf -z -n 1)
-    +wal -q -n -i "$location"
-    +feh --bg-fill --no-fehbg "$(< "${HOME}/.cache/wal/wal")" 
-
+    Remove this line:
+    feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*    
+    
+    Add this:
+    location=$(find "/home/$USER/Pictures/Wallpapers" -type f -print0 
+    | shuf -z -n 1)
+    feh --bg-fill --no-fehbg "$location"
+    echo "$location" > ~/.local/bin/piclocation.txt 
 '''
 
+And in your .bashrc file append this line:
+location=$(cat ~/.local/bin/fehlocation.txt)
+wal -q -n -i "$location"
+
 The first line of code simply generates a filename from the selected folder
-and adds it to the location variable. Have wal use that variable, then let
-feh take the file name from the cache. All done in one fell swoop. Power of bash
-scripting, my friend.
+and adds it to the location variable. Let feh use the new file and echo 
+it to a textfile.
+
+Then in  your bashrc, again we make another variable with similar name
+and this time we add it to wal. This ensures that wal only starts when we
+launch our terminal. Pretty sure there is a much efficient way, but this is
+what I came up so far. Open a terminal and you will get beautiful thematics
+that affects your terminal. Though, you can just use a preset for your terminal
+if you want to.
+
+Speaking of Terminals. Let's talk about some of them. Some people
+like urxvt and stick it. Many distro come default with it as a backup. 
+
+However for many ricer, two choices come top: Termite and Alacritty.
+
+I decided to install Alacritty(through Cargo installer, it's like pip3 but for
+rustlang) to see the hype around it. It claims to be the fastest term emu around
+, and honestly it does pop faster than xfce4-terminal but I had to create a 
+specific config for it.
+
+If you want to install bitmap fonts
+you have to delete /etc/fonts/conf.d/70-no-bitmaps.conf
+
+ sudo fc-cache -fv
+
+To install a bitmap font
+
+wget https://github.com/stark/siji/tree/master/pcf/siji.pcf
+
+cp it to your home fonts directory
+if not, create one
+
+mkdir ~/.local/share/fonts/misc
 
 
+run these two commands
+mkfontdir
+mkfontscale
+cat fonts.dir
 
+xfd -fa siji to see if it working
 
+refresh your cache
+fc-cache -f
 
+check if it exist
+fc-list | grep siji
 
+one more step
 
+xset fp+ ~/.local/share/fonts/misc
 
- 
+if you want to check one more time
+use 
+
+xfontself -fn siji 
+
+Click and hover the fndry menu, you will notice
+wuncon, then fmly which is siji you can keep going
+and it will appear just like our cat fonts.dir
+command.
+
+We did this so that we can rice our panel/bars
+in the sections.
 
 
 
