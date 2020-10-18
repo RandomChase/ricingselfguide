@@ -1,13 +1,13 @@
-Okay, since I want to learn how to "Rice" a Linux. I made this guide for myself 
-on how to "Rice" my linux installation. 
+Okay, since I want to learn how to "Rice" a Linux. I made this guide for myself
+on how to "Rice" my linux installation.
 
 For this guide, we will use the base install terminal emulator and bash. Since I
-am on Mint 20.1 with Xfce as my DE,  the base terminal is xfec4-terminal and the 
-Bash shell. There are alternative terminal emulators and shells, but I will go 
-with the base for this guide for the sake of simplicity. And I am assuming the 
-readers of this guide are as well, and on popular OOTB Distros like Mint, 
-Manjaro, Ubuntu, and what have you and on different DE spins that comes with 
-their own terminal emulators(KDE being Konsole, Gnome being Gnome-terminal and 
+am on Mint 20.1 with Xfce as my DE,  the base terminal is xfec4-terminal and the
+Bash shell. There are alternative terminal emulators and shells, but I will go
+with the base for this guide for the sake of simplicity. And I am assuming the
+readers of this guide are as well, and on popular OOTB Distros like Mint,
+Manjaro, Ubuntu, and what have you and on different DE spins that comes with
+their own terminal emulators(KDE being Konsole, Gnome being Gnome-terminal and
 etc) and bash shell as default shell.
 
 If you are on a debian based repo try to add this repository. This will help
@@ -15,17 +15,17 @@ you install a bunch of software from a package, rather than from source.
 https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer
 
 Although this guide is for new Ricers, I am assuming you have basic knowledge
-on shell commands and how to use the terminal and how to install binaries with 
-the package manager(apt, dnf, pacman and etc) and downloading source online with 
+on shell commands and how to use the terminal and how to install binaries with
+the package manager(apt, dnf, pacman and etc) and downloading source online with
 git and wget that comes with your distro.That's the bare minimum prerequisite.
 
-First come are the window managers. My preference is awesome and openbox for 
-starters, we will begin with them. 
+First come are the window managers. My preference is awesome and openbox for
+starters, we will begin with them.
 
-As to why I picked them, OpenBox is very mature and documented Stacking Window 
-Manager while Awesome is a Dynamic Window Manager with a beginner friendly 
-setup and scripting language. As to why I didn't pick i3 and bspwm, 
-they require more configurations, and for those who likes gaps, you have to get 
+As to why I picked them, OpenBox is very mature and documented Stacking Window
+Manager while Awesome is a Dynamic Window Manager with a beginner friendly
+setup and scripting language. As to why I didn't pick i3 and bspwm,
+they require more configurations, and for those who likes gaps, you have to get
 another i3, called i3-gaps which are not commonly available in package managers.
 
 We will begin with openbox, assuming we have the gtk2.0+ dependancies installed
@@ -36,33 +36,35 @@ So we need to install four programs:
     >   obconf  - Obconf will configure openbox's visuals. Should come bundled
         on your distro, if not, get this one. As well as obsession-logout
         obsession-exit.
-    >   menumaker - Menumaker will configure your context menu i.e the right 
+    >   menumaker - Menumaker will configure your context menu i.e the right
         click menu(Openbox calls them pipemenu, basically its native application
         launcher)
         *You can download this here: https://sourceforge.net/projects/menumaker/
 
-After you got the above, install these: 
-    >   rofi - Rofi is an application launcher, basically type in the program 
-        to launch it; there are several alternatives, but this one is better 
+After you got the above, install these:
+    >   rofi - Rofi is an application launcher, basically type in the program
+        to launch it; there are several alternatives, but this one is better
         for beginners.
-    >   lxappearance - This will help select the gtk theme of your 
+    >   lxappearance - This will help select the gtk theme of your
         graphical programs. There is oomox, but this one is far easier.
         There is also 'lxappearance-obconf', the latter is just particular
         to openbox and you it if you want lxappearance to have full control
         of obconf.
-    >   compton/picom - This is a compositor able to be used on window managers 
-        rather than DE's like compiz. It will give your more graphical effects 
+    >   compton/picom - This is a compositor able to be used on window managers
+        rather than DE's like compiz. It will give your more graphical effects
         like dropshadow and transperancy
-    >   feh - is a wallpaper selector. Also an image viewer, but it works well 
-        with openbox and other wms. However, it needs some minimal scripting to 
-        make it up and running. 
-    
+    >   feh - is a wallpaper selector. Also an image viewer, but it works well
+        with openbox and other wms. However, it needs some minimal scripting to
+        make it up and running.
 
-Obviously, no Rice is complete without cli softwares i.e a filemanager, a music 
+
+Obviously, no Rice is complete without cli softwares i.e a filemanager, a music
 player and a panel or taskbars, a notification tray. And other oddities, like
 automatic color theme selector for the terminal.
 
-We will get into them more later. But first let's do the base installations. 
+We will get into them more later. But first let's do the base installations.
+
+OPENBOX
 
 While installing - it will suggest several packages, depending on your package
 manager. Mine automatically installed obconf, obsession along with openbox.
@@ -71,33 +73,33 @@ Now, that it is installed. It's a good idea to logout and login a new session
 with openbox.
 
 Now, that you are in openbox, you will see a blank screen with just the mouse.
-Wait a minute, if you right click you will get a context menu. 
-By default it should have a decent menu if you installed it through a package 
+Wait a minute, if you right click you will get a context menu.
+By default it should have a decent menu if you installed it through a package
 manager rather than from source, but we are going to make it look better.
 
 First, if we head to ~/.config/openbox and you find only one or two files, there
-should be four of them, so copy them from /etc/xdg/openbox to that 
-home folder. This is if you are sharing the pc, otherwise, those configs in the 
-xdg are global. There should be 4 files: autostart.sh, environment.sh, menu.xml 
+should be four of them, so copy them from /etc/xdg/openbox to that
+home folder. This is if you are sharing the pc, otherwise, those configs in the
+xdg are global. There should be 4 files: autostart.sh, environment.sh, menu.xml
 and rc.xml.
 
 If you open autostart, you might see gnome, kde or xfce daemons.
 These will make those DE work with openbox.
 
-Menu.xml will have your right click menu.You can edit this manually if you want 
+Menu.xml will have your right click menu.You can edit this manually if you want
 so or let  menumaker generates one. You can still edit the generated one too.
 
-Now, let's add menumaker. Extract it with the 'tar -xvzf' command and run 
+Now, let's add menumaker. Extract it with the 'tar -xvzf' command and run
 './configure && make && make install' in the folder as sudo, and it will
-install so aslong as you have python2 or python3 in your system. 
+install so aslong as you have python2 or python3 in your system.
 (Tip: you can use mmaker without installing it too, just use the extracted one).
 
-After it has installed, run this command: 
+After it has installed, run this command:
 
 'mmaker -t xterm -f OpenBox3'
 
 Remember, if you are using something else, like Fluxbox or IceWM for example,
-you can always reference the wiki.archlinux.org for those particular WMs. 
+you can always reference the wiki.archlinux.org for those particular WMs.
 
 Infact, I use the archlinux's wikia in a lot for my other things. I really
 think it is a very good resource for beginners on how to setup many things
@@ -111,21 +113,21 @@ You have to reapply menumaker and restart.
 In my installation, restart doesn't exists in the menu and had to add it
 manually. Open menu.xml, find 'reconfigure', and underneath it add this.
 
-<item label="Restart OpenBox"> 
+<item label="Restart OpenBox">
     <action name="Execute">
         <execute>openbox --restart</execute>
 </action> </item>
 
-You will notice some settings from let's say, Cinnamon or KDE won't carry 
+You will notice some settings from let's say, Cinnamon or KDE won't carry
 over, like the icon theme if you open your file manager and what have you.
 There is a work around with OpenBox, but I prefer to use the vanilla OB.
 
 You can install rofi now, if you haven't yet.
 
 You can go ahead and open Openbox configuration. You can change the theme
-and what appears on the borders like if you want a close button or a rollup 
+and what appears on the borders like if you want a close button or a rollup
 button instead(reason why it is called stacking window manager, you can open
-and stack a bunch of apps on top of each other). Change the fonts here to a more 
+and stack a bunch of apps on top of each other). Change the fonts here to a more
 aesthetic one(more that later) and various other settings you can play with.
 Remember rc.xml? This is where it is stored.
 
@@ -135,12 +137,12 @@ clicking on them, it seems to only update after logging out and then logging in.
 
 Now let's add some keybindings. Preferrably people use the Windows key as the
 Superkey, and that's what I am going to use as well. So let's launch up our
-text editor and rc.xml. (Tip: if you don't want to do it manually, you can 
+text editor and rc.xml. (Tip: if you don't want to do it manually, you can
 install 'obkey' from source).
 
 Head to the section '<!-- Keybindings for running applications -->' section
 
-Just a reminder that 'C' stands for Control, 'S' for shift, 'A' for alt and 'W' 
+Just a reminder that 'C' stands for Control, 'S' for shift, 'A' for alt and 'W'
 for Windows key i.e the default Superkey for the OpenBox keybindings.
 
 Let's do one for rofi.
@@ -151,20 +153,22 @@ Let's do one for rofi.
     </action>
 </keybind>
 
-If you want to change rofi's theme, you have to search for it within rofi's 
-app launcher. If you want the correct name of other keys for they keybindings, 
-launch  up xev in terminal and click the button you want, it should be on the 
-3rd row, next to the closing paranthesis. 
+If you want the correct name of other keys for they keybindings,
+launch  up xev in terminal and click the button you want, it should be on the
+3rd row, next to the closing paranthesis. If you want to change rofi's theme,
+you have to search for it within rofi's app launcher.
 
 Restart OB and it will be enabled. You can do this for several otherbindings
-Like 'W-w' for a web browser and etc.
+Like 'W-w' for a web browser and etc. Mine would look like this:
+'W-e' for my editor. 'W-return' for terminal(return here is the enter key).
 
-Now time for wallpapers, I suggest you git clone from this repository: 
+Now time for wallpapers, I suggest you git clone from this repository:
 https://gitlab.com/dwt1/wallpapers.git - this is Distrotube's personal wallpaper
 collection and they are really neat. I cloned it in my Pictures folder
 for ease of access. It has a lot of natural landscapes and less abstract images,
 so it is a matter of preferences, but we want you to get up and running so get
-those.
+those. I also installed Ubuntu's and Mint's wallpapers altogether and removed
+whatever I don't personally like.
 
 If you have feh installed. It's high time to add it in our OpenBox autostart.
 Launch your favorit editor and put this there
@@ -172,13 +176,15 @@ Launch your favorit editor and put this there
 'feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* &'
 
 Well, feh will make the background a fill(there other options like bg-max,
-bg-center, bg-scale and etc, so pick your favorite from its man page, I prefer 
+bg-center, bg-scale and etc, so pick your favorite from its man page, I prefer
 fill as it zooms in the image to fill the screen).
 
 The '--no-fehbg' will tell feh not to add a .fehbg script for execution.
-This script is only good for one background to be reinitialized on your next 
-login, but if you want multiple rounds of backgrounds, add this command. 
+This script is only good for one background to be reinitialized on your next
+login, but if you want multiple rounds of backgrounds, add this command.
 The '--randomize' will pick a random picture in the folder you selected.
+But it will still stick to the same background for the whole session, for
+a fix read the next section.
 
 Alrighty. I am a guy who likes his wallpapers to change from time to time.
 If you have a bin in your home folder or ~/.local/bin, we will create
@@ -191,56 +197,58 @@ Create the new file and add this:
 feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*
 
 Then run this in terminal 'chmod +x fehchanger', then test it with ./fehchanger
-to see it works, and voila. It did. 
+to see it works, and voila. It did.
 
 Now we want it to repeat periodically and not just stand there at one time.
-Your unix or unix-like distro should have cron utility installed by default 
-and it is running in the background, if you want to use it check some online 
+Your unix or unix-like distro should have cron utility installed by default
+and it is running in the background, if you want to use it check some online
 guides. For some reason, it didn't work for me.
 
 However, I wrote this script and it worked just fine. So I edited the previous
 fehchanger script to this:
-'
+'''
 #!/usr/bin/env bash
 {
 while true;do
-  feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* 
+  feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*
   sleep 3m
 done
 } &
-'
+'''
 Obviously, you can change the value of sleep to seconds to minutes and even
 hours, and that is up to you.
 
 Now let's go back to our OpenBox autostart file and remove this line
 'feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/* &'
 
-And in with our script this line:
-'/home/$USER/.local/bin/fehchanger &' 
+And in with our script this line (make sure it is runnable with chmod +x):
+'/home/$USER/.local/bin/fehchanger &'
 
-Reboot, and it will work just wonderfully. What I like about feh, is that is 
-really minimal and small. If any case you guys want to install a minimal distro
-on an older computer, you know what software to run on them in the near future.
-If you 'pgrep sleep', and get a number you know our little script is working
-in the background. You can use 'top' to find it, and you will see how much 
-resource it is taking, it is almost none.
+Reboot(or run the script once), and it will work just wonderfully.
+What I like about feh, is that is really minimal and small. If any case you guys
+want to install a minimal distro on an older computer, you know what software to
+run on them in the near future. If you 'pgrep sleep', and get a number you know
+our little script is working in the background. You can use 'top' to find it,
+and you will see how much resource it is taking, it is almost none.
 
 Now that we have sweet wallpapers, let's get some cute effects on our desktop.
 Next let's get compton next.
 
+COMPTON/PICOM
+
 There is a good chance that your package manager will have compton if not picom.
 Picom is another fork of a compton fork. While compton is the stable release of
-other forks(the wonders of open-source projects). 
+other forks(the wonders of open-source projects) it has an old blur algorithms.
 
 Compton by default will search in certain locations, one of them being
 ~/.config folder. So create an empty .compton.conf file so that we can add
 in some valuable things.
 
-I for one like, blur effects and transperent terminals i.e translucent effect. 
+I for one like, blur effects and transperent terminals i.e translucent effect.
 So for that, I am going to use it. Of course, if you want to add drop shadow
-that's another thing. 
+that's another thing.
 
-If we download compton.sample.con from its main repo at 
+If we download compton.sample.con from its main repo at
 https://github.com/chjj/compton.git  we will have a base. Save it on our file
 and just launch 'compton' in terminal and WOAH! Everything is transparent!
 
@@ -248,20 +256,20 @@ Obviously there are options I want to change, maybe you don't want them to have
 the same thing. So play around with the option in the conf file.
 
 From several sources, they usually say change the renderer to "glx" rather than
-"xrender", especially if you have graphics card capable of handling it. 
+"xrender", especially if you have graphics card capable of handling it.
 
-There is also a delay(from fadein and fadeout) which I don't like. I like 
-my pc snappy and not like it is Windows Vista.
+There is also a delay(from fadein and fadeout) which I don't like. I like
+my pc snappy and not like it is Windows Vista all over again.
 
-If you didn't notice your terminal not becoming clear, that means you have to 
-go to its own config. It won't work without compton, but onceyou launch compton 
+If you didn't notice your terminal not becoming clear, that means you have to
+go to its own config. It won't work without compton, but once you launch compton
 it will work.
 
-You have to also make some exclusion for some software you don't want. 
+You have to also make some exclusion for some software you don't want.
 Like firefox or chrome or what have you.
 
 Also once you are done doing the settings. Let's go back to our autostart
-and just add compton like this  
+and just add compton like this
 
 'compton &'
 
@@ -272,75 +280,41 @@ like with them like how we did with feh originally.
 However in a strange twist of fate I decided to install picom
 from source from its github https://github.com/yshui/picom, just in case
 you want to build it too, remember it has quite a bunch of dependancies
-that needs to be installed(with exception of libpcre in my build). 
+that needs to be installed.
 
-The only reason is that it has a sweeter blurring algorithm known as 
-"dual_kawase", most of the options available in compton are available in 
-picom, however if you run picom from terminal its going to warn you on 
-deprecated options. 
-
-Also I didn't install the asciidoc because its dependancy is a wooping 800mb.
-So I just copied the man file as a text in my home folder.
+The only reason is that it has a sweeter blurring algorithm known as
+"dual_kawase" (from tryone's compton fork readded here), most of the options
+available in compton are available in picom, however if you run picom from
+terminal its going to warn you on deprecated options if you are using compton's
+config file.
 
 Alright. Now that we are done with compositing. Time to add some dandy bars.
 For the sake of this guide, I won't be using docks, just bars.
+
+PANELS/BARS
 
 There three popular bar choices for us to pick: tint2, polybar and lemonbar.
 There is also Xmobar, but I don't like things that are not independant, and
 xmobar supposed to accompany Xmonad another tiling window manager.
 
 Polybar might not be available in package, so you have to get it in source,
-lemonbar is not noob friendly and tint2 is the easiest of them all. 
+lemonbar is not noob friendly and tint2 is the easiest of them all.
 
 So get tint2 and apply your own settings to it. It is almost limitless
-with what you can do with it. Change the icons. The transperancy, and what 
-have you.
+with what you can do with it. Change the icons. The transperancy, and what
+have you. It's the easiest amongst them.
 
-Now, let's try pywall and see what's the buzz is about. If you don't have pip3
-installed, it's a good time to have it. It's a python package manager that 
-handles python packages in its own repository. Make sure you have the 
-dependancies for pywal, so check its github page: 
-https://github.com/dylanaraps/pywal/wiki/Installation
+I however picked up polybar, although its configuration system is not that
+unfamiliar to us window users who played with software and game ini, this is
+perhaps the first time where we edit most everything. Be sure to check the wiki
+on the polybar's github on what you can and cannot do.
 
-Since I want pywal to change to the background that I selected, 
-I will change this is to my fehchanger script:
+Lemonbar is far more difficult for new users and it haven't been update as of
+recently. This is better if you know what you are doing, and it takes far
+less system resources than either of the above. Just that you have more
+scripting experience.
 
-
-'''
-    Remove this line:
-    feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*    
-    
-    Add this:
-    location=$(find "/home/$USER/Pictures/Wallpapers" -type f -print0 
-    | shuf -z -n 1)
-    feh --bg-fill --no-fehbg "$location"
-    echo "$location" > ~/.local/bin/piclocation.txt 
-'''
-
-And in your .bashrc file append this line:
-location=$(cat ~/.local/bin/fehlocation.txt)
-wal -q -n -i "$location"
-
-The first line of code simply generates a filename from the selected folder
-and adds it to the location variable. Let feh use the new file and echo 
-it to a textfile.
-
-Then in  your bashrc, again we make another variable with similar name
-and this time we add it to wal. This ensures that wal only starts when we
-launch our terminal. Pretty sure there is a much efficient way, but this is
-what I came up so far. Open a terminal and you will get beautiful thematics
-that affects your terminal. Though, you can just use a preset for your terminal
-if you want to.
-
-Speaking of Terminals. Let's talk about some of them. Some people
-like urxvt and stick it. Many distro come default with it as a backup. 
-
-However for many ricer, two choices come top: Termite and Alacritty.
-
-I decided to install Alacritty(through Cargo installer, it's like pip3 but for
-rustlang) to see the hype around it. It claims to be the fastest term emu around
-, and honestly it does pop faster than xfce4-terminal but I had to create a 
-specific config for it.
+FONTS
 
 If you want to install bitmap fonts
 you have to delete /etc/fonts/conf.d/70-no-bitmaps.conf
@@ -374,19 +348,86 @@ one more step
 
 xset fp+ ~/.local/share/fonts/misc
 
-if you want to check one more time
-use 
+If you want to check one more time use"
 
-xfontself -fn siji 
+xfontself -fn siji
 
-Click and hover the fndry menu, you will notice
-wuncon, then fmly which is siji you can keep going
-and it will appear just like our cat fonts.dir
-command.
+Click and hover the fndry menu, you will notice wuncon,
+then fmly which is siji you can keep going and it will appear just like our 'cat
+fonts.dir' command.
 
-We did this so that we can rice our panel/bars
-in the sections.
+If you want to install ttf fonts with icons, check our nerdfonts.
+https://github.com/ryanoasis/nerd-fonts
 
+It has all the things you want for your bar. Installation shouldn't be that hard
+either it be installed from gnome font viewer or just install it in your
+~/.local/share/fonts and then run fc-cache -f. This is also useful
+if you want to use icons in applications like Ranger and used the patched
+fonts in your terminal.
 
+You might have gucharmap, you can go to the 'Private Use Area' part of the
+charset of a particular font, you can find most of all the icons available
+there.
 
+COLOR SCHEMER
 
+Now, let's try pywall and see what's the buzz is about. If you don't have pip3
+installed, it's a good time to have it. It's a python package manager that
+handles python packages in its own repository. Make sure you have the
+dependancies for pywal, so check its github page:
+
+https://github.com/dylanaraps/pywal/wiki/Installation
+
+Since I want pywal to change to the background that I selected,
+I will change this is to my fehchanger script:
+'''
+    -Remove this line:
+    feh --bg-fill --no-fehbg --randomize /home/$USER/Pictures/Wallpapers/*
+
+    +Add this:
+    location=$(find "/home/$USER/Pictures/Wallpapers" -type f -print0
+    | shuf -z -n 1)
+    feh --bg-fill --no-fehbg "$location"
+    echo "$location" > ~/.local/bin/piclocation.txt
+'''
+
+And in your .bashrc file append this line:
+location=$(cat ~/.local/bin/fehlocation.txt)
+wal -q -n -i "$location"
+
+The first line of code simply generates a filename from the selected folder
+and adds it to the location variable. Let feh use the new file and echo
+it to a textfile.
+
+Then in  your bashrc, again we make another variable with similar name
+and this time we add it to wal. This ensures that wal only starts when we
+launch our terminal. Pretty sure there is a much efficient way, but this is
+what I came up so far. Open a terminal and you will get beautiful thematics
+that affects your terminal. Though, you can just use a preset for your terminal
+if you want to.
+
+Speaking of Terminals. Let's talk about some of them. Some people
+like urxvt and stick it. Many distro come default with it as a backup.
+
+However for many ricer, three choices come top: Kitty, Termite and Alacritty.
+
+I decided to install Alacritty(through Cargo installer, it's like pip3 but for
+rustlang) to see the hype around it. It claims to be the fastest term emu around
+, and honestly it does pop faster than xfce4-terminal but I had to create a
+specific config for it. I tried kitty and then removed. Found out I am not a fan
+of software made in interpreted languages, even if they are gpu accelerated,
+if there is a faster and better looking alternative, in this case Alacritty,
+which uses the all new hyped system language Rust.
+
+Next is, what other software we can do to rice our linux? Well, of course term
+programs and here is my recommended list:
+
+        >   cava - a visualizor for command line.
+        >   fish - another shell interpretor, however it has its own specific
+                 style of syntax, I prefer it over the regular bash interpretor,
+                 since it has out of the box functionalities like completion.
+        >   moc  - music on console, a music console player with an added in
+                 menu. Used this with mpd to run the songs being played on your
+                 bar.
+        >   ranger - a console file manager. There is an addon that let's you
+                     use nerdfont icon fonts, so it is kind of neat for that.
